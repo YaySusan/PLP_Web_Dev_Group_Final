@@ -18,12 +18,12 @@
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="#" class="active">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Blog <i class="fas fa-chevron-down"></i></a></li>
-                        <li><a href="#">Pages <i class="fas fa-chevron-down"></i></a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#home" class="active">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#blog">Blog <i class="fas fa-chevron-down"></i></a></li>
+                        <li><a href="#pages">Pages <i class="fas fa-chevron-down"></i></a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
                 <div class="nav-buttons">
@@ -36,7 +36,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
@@ -56,7 +56,7 @@
     </section>
 
     <!-- About Section -->
-    <section class="about">
+    <section class="about" id="about">
         <div class="container">
             <div class="about-content">
                 <div class="about-image">
@@ -78,7 +78,7 @@
                         </div>
                         <div class="info-item">
                             <span>Email:</span>
-                            <p>example@mail.com</p>
+                            <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="513429303c213d34113c30383d7f323e3c">[email&#160;protected]</a></p>
                         </div>
                         <div class="info-item">
                             <span>Phone:</span>
@@ -106,7 +106,7 @@
     </section>
 
     <!-- Services Section -->
-    <section class="services">
+    <section class="services" id="services">
         <div class="container">
             <h2 class="section-title">What I Do For You</h2>
             
@@ -143,7 +143,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section class="skills">
+    <section class="skills" id="skills">
         <div class="container">
             <div class="skills-content">
                 <div class="skills-image">
@@ -197,7 +197,7 @@
     </section>
 
     <!-- Expertise Section -->
-    <section class="expertise">
+    <section class="expertise" id="expertise">
         <div class="container">
             <div class="expertise-content">
                 <div class="expertise-grid">
@@ -258,7 +258,7 @@
     </section>
 
     <!-- Stats Section -->
-    <section class="stats">
+    <section class="stats" id="stats">
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item">
@@ -285,7 +285,7 @@
     </section>
 
     <!-- Portfolio Section -->
-    <section class="portfolio">
+    <section class="portfolio" id="portfolio">
         <div class="container">
             <h2 class="section-title">My Success Work</h2>
             
@@ -318,7 +318,7 @@
     </section>
 
     <!-- Clients Section -->
-    <section class="clients">
+    <section class="clients" id="clients">
         <div class="container">
             <div class="clients-grid">
                 <div class="client-item">
@@ -341,7 +341,7 @@
     </section>
 
     <!-- Footer Section -->
-    <footer>
+    <footer id="contact">
         <div class="container">
             <div class="footer-top">
                 <div class="footer-logo">
@@ -356,7 +356,7 @@
                     
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <span>info@example.com</span>
+                        <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0e676068614e6b766f637e626b206d6163">[email&#160;protected]</a></span>
                     </div>
                     
                     <div class="contact-item">
@@ -392,5 +392,29 @@
             <a href="#" title="Buy"><i class="fas fa-shopping-cart"></i></a>
         </div>
     </div>
+
+    <!-- JavaScript for Smooth Scrolling -->
+    <script>
+        document.querySelectorAll('nav ul li a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80, // Adjust for fixed header
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active class
+                    document.querySelectorAll('nav ul li a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
